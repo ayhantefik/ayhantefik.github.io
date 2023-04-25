@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Webpage</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<!-- flyttade <script> under canvas för det behöver ladda objektet först -->
+		<link rel='stylesheet' href='styles.css'>
+	</head>
+	
+	<body>
+		
+	
+	<ul>
+		<menu_header>
+			<li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">Välj spel</a>
+				<div class="dropdown-content">
+					<a onclick='getMemoryGame()'>Memory</a>
+					<b onclick='getPageDaysBetweenTwoYears()'>Snake</b>
+				</div>
+			</li>
+		</menu_header>
+	</ul>
+	<div id='mainpage' class='pagebody'>
+		<h1>Main page</h1>
+	</div>
+		
+		
+		
+		<script type='text/javascript' src='scripts.js'></script>
+	</body>
+</html>
+
+<!--
+<input type='text'>
+<button type='button'></button>
+<input type='text' readonly>
