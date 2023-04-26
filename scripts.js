@@ -46,7 +46,7 @@ function getMemoryGame()
 	mainPage.appendChild(gameArea);
 	
 	var updatetime = document.createElement('p');
-	updatetime.innerText = "Last update 26/04/2023 22:05";
+	updatetime.innerText = "Last update 26/04/2023 23:00";
 	updatetime.style.margin = "20px";
 	mainPage.appendChild(updatetime);
 	
