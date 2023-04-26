@@ -91,9 +91,18 @@ function getMemoryGame()
 	function turnCard(mcard_s, mcard_inside_s)
 	{
 		var box = document.getElementById(mcard_s);
-		box.style.backgroundImage = "url('cards/" + mcard_inside_s + ".jpg')";
+		if (mobile === true)
+		{
+			box.style.backgroundImage = "url('cards_mobile/" + mcard_inside_s + ".jpg')";
+		}
+		else
+		{
+			box.style.backgroundImage = "url('cards/" + mcard_inside_s + ".jpg')";
+		}
 		choosen_cards.push(mcard_inside_s);
 		choosen_boxes.push(mcard_s);
+		var choosenbox1 = document.getElementById(choosen_boxes[0]);
+		var choosenbox2 = document.getElementById(choosen_boxes[1]);
 		
 		if (choosen_cards[0] < 15)
 		{
@@ -112,19 +121,13 @@ function getMemoryGame()
 		{
 			p++;
 			document.getElementById('points').innerHTML = p;
+			choosenbox2.disabled = true;
+			choosenbox1.disabled = true;
 		}
 		if (countchoose == 3 && firstcard == secondcard)
 		{
-			var choosenbox1 = document.getElementById(choosen_boxes[0]);
-			var choosenbox2 = document.getElementById(choosen_boxes[1]);
-			choosenbox2.disabled = true;
-			choosenbox1.disabled = true;
 			choosenbox1.style.backgroundImage = "url('closed.jpg')";
 			choosenbox2.style.backgroundImage = "url('closed.jpg')";
-			/*choosen_boxes.shift();
-			choosen_boxes.shift();
-			choosen_cards.shift();
-			choosen_cards.shift();*/
 			var removeFromIndex = [0,1];
 			for (var i = removeFromIndex.length -1; i >= 0; i--)
 			{
@@ -134,14 +137,8 @@ function getMemoryGame()
 		}
 		if (countchoose == 3 && firstcard !== secondcard)
 		{
-			var choosenbox11 = document.getElementById(choosen_boxes[0]);
-			var choosenbox22 = document.getElementById(choosen_boxes[1]);
-			choosenbox11.style.backgroundImage = "url('box.jpg')";
-			choosenbox22.style.backgroundImage = "url('box.jpg')";
-			/*choosen_boxes.shift();
-			choosen_boxes.shift();
-			choosen_cards.shift();
-			choosen_cards.shift();*/
+			choosenbox1.style.backgroundImage = "url('box.jpg')";
+			choosenbox2.style.backgroundImage = "url('box.jpg')";
 			var removeFromIndex = [0,1];
 			for (var i = removeFromIndex.length -1; i >= 0; i--)
 			{
