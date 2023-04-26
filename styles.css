@@ -80,7 +80,6 @@ body
 
 h1 {
 	text-align: center;
-	margin: 40px;
 }
 
 p {
@@ -100,9 +99,9 @@ p {
 	max-height: 800px;
 	background: #d6d6d6;
 	margin-top: 40px;
-	display: flex;
 	align-items: center;
 	justify-content: center;
+	display: block;
 	border-radius: 40px;
 }
 
