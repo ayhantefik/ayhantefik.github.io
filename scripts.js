@@ -11,6 +11,11 @@ function getHomePage()
 
 function getMemoryGame()
 {
+	var mobile = false;
+	if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i))
+	{
+		mobile = true;
+	}
 	let firstcard;
 	let secondcard;
 	var p = 0;
@@ -18,7 +23,7 @@ function getMemoryGame()
 	var mainPage = document.getElementById('mainpage')
 	var pointArea = document.createElement('div');
 	pointArea.id = "pointarea";
-	mainpage.appendChild(pointArea);
+	mainPage.appendChild(pointArea);
 	
 	var points = document.createElement('h1');
 	points.id = "points";
@@ -27,11 +32,24 @@ function getMemoryGame()
 	var getpoints = document.getElementById('points');
 	var gameArea = document.createElement('div');
 	gameArea.id = "gamearea";
-	gameArea.style.margin = "100px auto";
-	mainpage.appendChild(gameArea);
-	var gameArea2 = document.createElement('div');
-	gameArea2.id = "gamearea2";
-	mainpage.appendChild(gameArea2);
+	gameArea.style.margin = "50px auto";
+	if (mobile === true)
+	{
+		gameArea.style.width = "390px";
+		gameArea.style.height = "325px";
+	}
+	else
+	{
+		gameArea.style.width = "420px";
+		gameArea.style.height = "350px";
+	}
+	mainPage.appendChild(gameArea);
+	
+	var updatetime = document.createElement('p');
+	updatetime.innerText = "Last update 26/04/2023 21:00";
+	updatetime.style.margin = "20px";
+	mainPage.appendChild(updatetime);
+	
 	
 	const mcard_inside_array = [];
 	const choosen_cards = [];
@@ -49,10 +67,18 @@ function getMemoryGame()
 	
 	for (var i = 0; i <= 29; i++)
 		{
-			mcard = document.createElement('div');
+			mcard = document.createElement('button');
 			mcard.id = "memorycard" + i;
-			mcard.style.width = "65px";
-			mcard.style.height = "65px";
+			if (mobile === true)
+			{
+				mcard.style.width = "65px";
+				mcard.style.height = "65px";
+			}
+			else
+			{
+				mcard.style.width = "70px";
+				mcard.style.height = "70px";
+			}
 			mcard.style.float = "left";
 			mcard.style.backgroundImage = "url('box.jpg')";
 			const mcard_string = "memorycard" + i;
@@ -60,7 +86,8 @@ function getMemoryGame()
 			mcard.onclick = function() {turnCard(mcard_string, mcard_inside)};
 			gameArea.appendChild(mcard);
 		}
-		
+	
+	
 	function turnCard(mcard_s, mcard_inside_s)
 	{
 		var box = document.getElementById(mcard_s);
@@ -81,21 +108,19 @@ function getMemoryGame()
 		
 		var countchoose = choosen_boxes.length
 		
-		/*if (firstcard == secondcard)
+		if (countchoose == 2 && firstcard == secondcard)
 		{
 			p++;
 			document.getElementById('points').innerHTML = p;
-		}*/
+		}
 		if (countchoose == 3 && firstcard == secondcard)
 		{
-			p++;
-			document.getElementById('points').innerHTML = p;
 			var choosenbox1 = document.getElementById(choosen_boxes[0]);
 			var choosenbox2 = document.getElementById(choosen_boxes[1]);
-			choosenbox1.style.backgroundImage = "url('closed.jpg')";
-			choosenbox2.style.backgroundImage = "url('closed.jpg')";
 			choosenbox2.disabled = true;
 			choosenbox1.disabled = true;
+			choosenbox1.style.backgroundImage = "url('closed.jpg')";
+			choosenbox2.style.backgroundImage = "url('closed.jpg')";
 			choosen_boxes.shift();
 			choosen_boxes.shift();
 			choosen_cards.shift();
@@ -111,6 +136,15 @@ function getMemoryGame()
 			choosen_boxes.shift();
 			choosen_cards.shift();
 			choosen_cards.shift();
+		}
+		if (p == 15)
+		{
+			document.getElementById('mainpage').innerHTML = "";
+			var mainPage = document.getElementById('mainpage');
+			var winText = document.createElement('h1');
+			winText.id = "wintext";
+			winText.innerText = "You won!";
+			mainPage.appendChild(winText);
 		}
 	}	
 }
