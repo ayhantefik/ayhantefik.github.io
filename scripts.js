@@ -27,7 +27,7 @@ function getMemoryGame()
 	var getpoints = document.getElementById('points');
 	var gameArea = document.createElement('div');
 	gameArea.id = "gamearea";
-	gameArea.style.margin = "50px auto";
+	gameArea.style.margin = "100px auto";
 	mainpage.appendChild(gameArea);
 	var gameArea2 = document.createElement('div');
 	gameArea2.id = "gamearea2";
@@ -49,7 +49,7 @@ function getMemoryGame()
 	
 	for (var i = 0; i <= 29; i++)
 		{
-			mcard = document.createElement('button');
+			mcard = document.createElement('div');
 			mcard.id = "memorycard" + i;
 			mcard.style.width = "70px";
 			mcard.style.height = "70px";
