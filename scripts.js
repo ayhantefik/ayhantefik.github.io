@@ -76,8 +76,8 @@ function getMemoryGame()
 			}
 			else
 			{
-				mcard.style.width = "100%";
-				mcard.style.height = "100%";
+				mcard.style.width = "70px";
+				mcard.style.height = "70px";
 			}
 			mcard.style.float = "left";
 			mcard.style.backgroundImage = "url('box.jpg')";
