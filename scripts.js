@@ -73,14 +73,15 @@ function getMemoryGame()
 			{
 				mcard.style.width = "55px";
 				mcard.style.height = "55px";
+				mcard.style.backgroundImage = "url('box_mobile.jpg')";
 			}
 			else
 			{
 				mcard.style.width = "70px";
 				mcard.style.height = "70px";
+				mcard.style.backgroundImage = "url('box.jpg')";
 			}
 			mcard.style.float = "left";
-			mcard.style.backgroundImage = "url('box.jpg')";
 			const mcard_string = "memorycard" + i;
 			const mcard_inside = mixedcards[i];
 			mcard.onclick = function() {turnCard(mcard_string, mcard_inside)};
@@ -124,6 +125,11 @@ function getMemoryGame()
 			choosenbox2.disabled = true;
 			choosenbox1.disabled = true;
 		}
+		if (countchoose == 2 && firstcard !== secondcard)
+		{
+			choosenbox2.disabled = true;
+			choosenbox1.disabled = true;
+		}
 		if (countchoose == 3 && firstcard == secondcard)
 		{
 			choosenbox1.style.backgroundImage = "url('closed.jpg')";
@@ -137,6 +143,8 @@ function getMemoryGame()
 		}
 		if (countchoose == 3 && firstcard !== secondcard)
 		{
+			choosenbox2.disabled = false;
+			choosenbox1.disabled = false;
 			choosenbox1.style.backgroundImage = "url('box.jpg')";
 			choosenbox2.style.backgroundImage = "url('box.jpg')";
 			var removeFromIndex = [0,1];
