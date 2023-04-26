@@ -51,8 +51,8 @@ function getMemoryGame()
 		{
 			mcard = document.createElement('div');
 			mcard.id = "memorycard" + i;
-			mcard.style.width = "70px";
-			mcard.style.height = "70px";
+			mcard.style.width = "65px";
+			mcard.style.height = "65px";
 			mcard.style.float = "left";
 			mcard.style.backgroundImage = "url('box.jpg')";
 			const mcard_string = "memorycard" + i;
