@@ -46,7 +46,7 @@ function getMemoryGame()
 	mainPage.appendChild(gameArea);
 	
 	var updatetime = document.createElement('p');
-	updatetime.innerText = "Last update 26/04/2023 21:30";
+	updatetime.innerText = "Last update 26/04/2023 22:05";
 	updatetime.style.margin = "20px";
 	mainPage.appendChild(updatetime);
 	
@@ -76,8 +76,8 @@ function getMemoryGame()
 			}
 			else
 			{
-				mcard.style.width = "70px";
-				mcard.style.height = "70px";
+				mcard.style.width = "100%";
+				mcard.style.height = "100%";
 			}
 			mcard.style.float = "left";
 			mcard.style.backgroundImage = "url('box.jpg')";
@@ -121,21 +121,33 @@ function getMemoryGame()
 			choosenbox1.disabled = true;
 			choosenbox1.style.backgroundImage = "url('closed.jpg')";
 			choosenbox2.style.backgroundImage = "url('closed.jpg')";
-			choosen_boxes.shift();
+			/*choosen_boxes.shift();
 			choosen_boxes.shift();
 			choosen_cards.shift();
-			choosen_cards.shift();
+			choosen_cards.shift();*/
+			var removeFromIndex = [0,1];
+			for (var i = removeFromIndex.length -1; i >= 0; i--)
+			{
+				choosen_boxes.splice(removeFromIndex[i],1);
+				choosen_cards.splice(removeFromIndex[i],1);
+			}
 		}
 		if (countchoose == 3 && firstcard !== secondcard)
 		{
-			var choosenbox1 = document.getElementById(choosen_boxes[0]);
-			var choosenbox2 = document.getElementById(choosen_boxes[1]);
-			choosenbox1.style.backgroundImage = "url('box.jpg')";
-			choosenbox2.style.backgroundImage = "url('box.jpg')";
-			choosen_boxes.shift();
+			var choosenbox11 = document.getElementById(choosen_boxes[0]);
+			var choosenbox22 = document.getElementById(choosen_boxes[1]);
+			choosenbox11.style.backgroundImage = "url('box.jpg')";
+			choosenbox22.style.backgroundImage = "url('box.jpg')";
+			/*choosen_boxes.shift();
 			choosen_boxes.shift();
 			choosen_cards.shift();
-			choosen_cards.shift();
+			choosen_cards.shift();*/
+			var removeFromIndex = [0,1];
+			for (var i = removeFromIndex.length -1; i >= 0; i--)
+			{
+				choosen_boxes.splice(removeFromIndex[i],1);
+				choosen_cards.splice(removeFromIndex[i],1);
+			}
 		}
 		if (p == 15)
 		{
