@@ -16,17 +16,18 @@ function getMemoryGame()
 	var p = 0;
 	document.getElementById('mainpage').innerHTML = ""
 	var mainPage = document.getElementById('mainpage')
+	var pointArea = document.createElement('div');
+	pointArea.id = "pointarea";
+	mainpage.appendChild(pointArea);
+	
 	var points = document.createElement('h1');
 	points.id = "points";
 	points.innerText = p;
-	mainPage.appendChild(points);
+	pointArea.appendChild(points);
 	var getpoints = document.getElementById('points');
-	var br = document.createElement('br');
-	mainPage.appendChild(br);
-	var br1 = document.createElement('br');
-	mainPage.appendChild(br1);
 	var gameArea = document.createElement('div');
 	gameArea.id = "gamearea";
+	gameArea.style.margin = "50px auto";
 	mainpage.appendChild(gameArea);
 	var gameArea2 = document.createElement('div');
 	gameArea2.id = "gamearea2";
