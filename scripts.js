@@ -145,8 +145,16 @@ function getMemoryGame()
 		{
 			choosenbox2.disabled = false;
 			choosenbox1.disabled = false;
-			choosenbox1.style.backgroundImage = "url('box.jpg')";
-			choosenbox2.style.backgroundImage = "url('box.jpg')";
+			if (mobile === true)
+			{
+				choosenbox1.style.backgroundImage = "url('box_mobile.jpg')";
+				choosenbox2.style.backgroundImage = "url('box_mobile.jpg')";
+			}
+			else
+			{
+				choosenbox1.style.backgroundImage = "url('box.jpg')";
+				choosenbox2.style.backgroundImage = "url('box.jpg')";
+			}
 			var removeFromIndex = [0,1];
 			for (var i = removeFromIndex.length -1; i >= 0; i--)
 			{
