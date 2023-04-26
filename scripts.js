@@ -35,8 +35,8 @@ function getMemoryGame()
 	gameArea.style.margin = "50px auto";
 	if (mobile === true)
 	{
-		gameArea.style.width = "390px";
-		gameArea.style.height = "325px";
+		gameArea.style.width = "330px";
+		gameArea.style.height = "275px";
 	}
 	else
 	{
@@ -46,7 +46,7 @@ function getMemoryGame()
 	mainPage.appendChild(gameArea);
 	
 	var updatetime = document.createElement('p');
-	updatetime.innerText = "Last update 26/04/2023 21:00";
+	updatetime.innerText = "Last update 26/04/2023 21:30";
 	updatetime.style.margin = "20px";
 	mainPage.appendChild(updatetime);
 	
@@ -71,8 +71,8 @@ function getMemoryGame()
 			mcard.id = "memorycard" + i;
 			if (mobile === true)
 			{
-				mcard.style.width = "65px";
-				mcard.style.height = "65px";
+				mcard.style.width = "55px";
+				mcard.style.height = "55px";
 			}
 			else
 			{
