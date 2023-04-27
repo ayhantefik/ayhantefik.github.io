@@ -19,6 +19,9 @@ function getMemoryGame()
 	let firstcard;
 	let secondcard;
 	var p = 0;
+	var seconds = 0;
+	var minutes = 0;
+	var result;
 	document.getElementById('mainpage').innerHTML = ""
 	var mainPage = document.getElementById('mainpage')
 	var pointArea = document.createElement('div');
@@ -29,6 +32,27 @@ function getMemoryGame()
 	points.id = "points";
 	points.innerText = p;
 	pointArea.appendChild(points);
+	
+	var timerArea = document.createElement('div');
+	timerArea.id = "timerArea";
+	mainPage.appendChild(timerArea);
+	var timer = document.createElement('h1');
+	timer.id = "timer";
+	
+	timer.innerText = minutes + " min " + seconds + " sec"
+	timerArea.appendChild(timer);
+	
+	function timerFunction() {
+		seconds += 1;
+		timer.innerText = minutes + " min " + seconds + " sec";
+		if (seconds == 60)
+		{
+			minutes += 1;
+			seconds = 0;
+		}
+	}
+	var stoptimer = setInterval(timerFunction, 1000);
+	
 	var getpoints = document.getElementById('points');
 	var gameArea = document.createElement('div');
 	gameArea.id = "gamearea";
@@ -164,12 +188,18 @@ function getMemoryGame()
 		}
 		if (p == 15)
 		{
+			result = document.getElementById('timer').innerHTML;
 			document.getElementById('mainpage').innerHTML = "";
 			var mainPage = document.getElementById('mainpage');
 			var winText = document.createElement('h1');
 			winText.id = "wintext";
 			winText.innerText = "You won!";
 			mainPage.appendChild(winText);
+			var br10 = document.createElement('br');
+			mainPage.appendChild(br10);
+			var showresult = document.createElement('h1');
+			showresult.innerText = "Score: " + result;
+			mainPage.appendChild(showresult);
 		}
 	}	
 }
